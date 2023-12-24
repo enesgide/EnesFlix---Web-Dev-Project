@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-top: rgb(30, 30, 30);
+  --bg-bot: rgb(20, 20, 20);
+  --blue: rgb(0, 122, 252);
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, var(--bg-top), var(--bg-bot));  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-content {
+  min-height: calc(100vh - 90px);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.return-btn {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  background-color: red;
+  padding: 10px 15px;
+  border: 2px solid red;
+  border-radius: 30px;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.return-btn:hover {
+  border-color: white;
+}
+
+.nav-bar {
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--bg-bot);
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.nav-bar li {
+  position: relative;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-bar .logo {
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.nav-bar .logo:hover {
+  color: rgb(0, 160, 252);
+}
+
+.nav-bar .nav-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.1s ease;
+  transform: translateX(-50%);
+}
+
+.nav-bar .nav-btn:hover::before {
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+.login-btn {
+  font-weight: 700;
+  color: white;
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+  border-radius: 20px;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.login-btn:hover {
+  border-color: white;
+}
+
+.nav-bar .search-bar {
+  background: transparent;
+  flex-grow: 1;
+  padding: 20px 15px;
+}
+
+.nav-bar .search-bar .input {
+  box-sizing: border-box;
+  background-color: rgb(40, 40, 40);
+  height: calc(100% + 10px);
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: white;
+  font-family: 'Poppins';
+  font-weight: 500;
+  transform: translateY(-5px);
+}
+
+.nav-bar .search-bar .input::placeholder {
+  color: rgb(146, 146, 146);
+}
+
+.nav-bar .search-bar .input:focus {
+  outline: none; /* Disable the default browser outline */
+  box-shadow: 0 0 0 2px var(--blue); /* Custom focus style using box-shadow */
+}
+
+.movies-container {
+  position: relative;
+  width: 100%;
+}
+
+.movies-container .slider {
+  overflow-x: hidden;
+  cursor: grab;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  scroll-behavior: auto;
+  padding: 20px 60px;
+}
+
+.movies-container .slider::-webkit-scrollbar {
+  display: none;
+}
+
+.movies-container .item {
+  background-color: rgb(40, 40, 40);
+  box-sizing: border-box;
+  width: calc((100% - (4 * 20px)) / 5);
+  aspect-ratio: calc(341/ 192);
+  border-radius: 4px;
+  flex-shrink: 0;
+  text-align: center;
+  transition: all ease 0.2s;
+}
+
+.movies-container .item:hover {
+  transform: scale(1.15);
+  transform-origin: center;
+  z-index: 5;
+  box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.5);
+}
+
+.movies-container .row-btn {
+  z-index: 10;
+  height: 25%;
+  aspect-ratio: 1;
+  opacity: 50%;
+  background-color: var(--bg-bot);
+  border: 2px white solid;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.movies-container .row-btn:hover {
+  opacity: 100%;
+}
+
+.login-content {
+  width: 300px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50px);  
+  background-color: rgb(40, 40, 40);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.login-heading {
+  text-align: center;
+  width: 400px;
+  margin-bottom: 40px;
+  font-family: 'Montserrat';
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+  color: white;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: white;
+}
+
+.login-form .login-btn {
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+  font-family: 'Montserrat';
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.login-form .login-btn:hover {
+  cursor: pointer;
+}
+
+.login-form input {
+  box-sizing: border-box;
+  background-color: rgb(230, 230, 230);
+  height: calc(100% + 10px);
+  width: 85%;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(--bg-bot);
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 0.9rem;
+  transform: translateY(-5px);
+  margin-bottom: 5px;
+}
+
+.login-form input:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 2px rgb(40, 40, 40), /* First layer: 4px black outline */
+    0 0 0 4px var(--blue);
+}
+
+.login-form .signup-btn:hover {
+  border-bottom: 1px solid white;
+}

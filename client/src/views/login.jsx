@@ -1,28 +1,36 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
 
 const Login = () => {
-    // Store states for user details
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [hiddenPassword, setHiddenPassword] = useState(null);
 
-    // Helper functions
-    const handleSubmit = () => {
-        console.log("Form is submitted");
+    // Store states for user details
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const history = useHistory();
+
+
+    // Login to account
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Login attempted");
+
+        axios.post("http://localhost:3001/users/login", { username, password })
+            .then(res => {
+                history.push("/");
+            })
+            .catch(err => {
+                history.push("/login");
+            });
     }
 
-    useEffect(() => {
-        if (!password) return;
-        const hidden = "•".repeat(password.length);
-        setHiddenPassword(hidden);
-    }, [password]);
 
     // Render page
     return (
         <div className="page-content" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
-            <div className="login-content" center>
+            <div className="login-content">
 
                 <div className="login-heading">
                     Log in to EnesFlix
@@ -32,8 +40,8 @@ const Login = () => {
                     <input type="text" required placeholder="Username"
                     value={username} onChange={(e) => setUsername(e.target.value)}/>
 
-                    <input type="text" required placeholder="Password"
-                    value={hiddenPassword} onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" required placeholder="Password"
+                    value={password} onChange={(e) => setPassword(e.target.value)}/>
 
                     <button className="login-btn">
                         Log in

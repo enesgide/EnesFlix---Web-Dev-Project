@@ -1,23 +1,37 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
 
 const SignUp = () => {
 
     // Store states for user details
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [confirmPassword, setConfirmPassword] = useState(null);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
+    const history = useHistory();
 
-    // Helper functions
+    
+    // Create new account
     const handleSubmit = (e) => {
-        e.preventDefault();
+        console.log("handle create account trigger");
+        e.preventDefault();        
 
-        if (password === confirmPassword) {
-            console.log("Create new user:", {username, password, confirmPassword});            
-        } else {
-            console.warn("Passwords do not match");
+        if (password !== confirmPassword) {
+            return console.warn("Passwords do not match");
         }        
+
+        console.log("Create new user:", { username, password, confirmPassword });
+
+        axios.post("http://localhost:3001/users", { username, password })
+            .then(res => {
+                console.log(res);
+                history.push("/");
+            })
+            .catch(err => {
+                console.error(err);
+                history.push("/signup");                
+            });
     }
 
 
@@ -25,7 +39,7 @@ const SignUp = () => {
     return (
         <div className="page-content" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
-            <div className="login-content" center style={{padding: '50px', backgroundColor: 'rgb(40, 40, 40)', borderRadius: '20px',
+            <div className="login-content"  style={{padding: '50px', backgroundColor: 'rgb(40, 40, 40)', borderRadius: '20px',
             display: 'inline-flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', transform: 'translateY(-50px)',}}>
 
                 <div className="login-heading">

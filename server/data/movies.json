@@ -1,0 +1,110 @@
+{
+    "movies": [
+        {
+            "title": "The Hunger Games", 
+            "poster": "HungerGames.png", 
+            "categories": ["Action"]
+        },
+        {
+            "title": "The Hunger Games: Catching Fire", 
+            "poster": "HungerGamesCatchingFire.png",
+            "categories": ["Action"]
+        },
+        {
+            "title": "The Hunger Games: Mockingjay - Part 1", 
+            "poster": "HungerGamesMockingjay1.png",
+            "categories": ["Action", "Popular"]
+        },
+        {
+            "title": "The Hunger Games: Mockingjay - Part 2", 
+            "poster": "HungerGamesMockingjay2.png",
+            "categories": ["Action"]
+        },
+        {
+            "title": "The Hunger Games: The Ballad of Songbirds & Snakes", 
+            "poster": "HungerGamesBallad.png",
+            "categories": ["Action", "New"],
+            "trailer": "https://youtu.be/NxW_X4kzeus"
+        },
+        {
+            "title": "The Lord of the Rings: The Fellowship of the Ring", 
+            "poster": "LoTR1.png",
+            "categories": ["Action", "Popular"]
+        },
+        {
+            "title": "The Lord of the Rings: The Two Towers", 
+            "poster": "LoTR2.png",
+            "categories": ["Action"]
+        },
+        {
+            "title": "The Lord of the Rings: The Return of the King", 
+            "poster": "LoTR3.png",
+            "categories": ["Action"]
+        },
+        {
+            "title": "Oppenheimer", 
+            "poster": "Oppenheimer.png",
+            "categories": ["New", "Popular"]
+        },
+        {
+            "title": "Five Nights at Freddy's", 
+            "poster": "FNaF.png",
+            "categories": ["New", "Horror"]
+        },
+        {
+            "title": "Chicken Run: Dawn of the Nugget", 
+            "poster": "ChickenRunDawn.png",
+            "categories": ["New", "Comedy"]
+        },
+        {
+            "title": "A Quiet Place", 
+            "poster": "AQuietPlace.png",
+            "categories": ["Horror"]
+        },
+        {
+            "title": "It", 
+            "poster": "It.png",
+            "categories": ["Horror"]
+        },
+        {
+            "title": "It Chapter Two", 
+            "poster": "It2.png",
+            "categories": ["Horror"]
+        },
+        {
+            "title": "Get Out", 
+            "poster": "GetOut.png",
+            "categories": ["Popular", "Horror"]
+        },
+        {
+            "title": "Circle", 
+            "poster": "Circle.png",
+            "categories": ["Horror"]
+        },
+        {
+            "title": "Mean Girls", 
+            "poster": "MeanGirls.png",
+            "categories": ["Comedy"]
+        },
+        {
+            "title": "Minions & More 1", 
+            "poster": "Minions1.png",
+            "categories": ["Comedy"]
+        },
+        {
+            "title": "The Hangover", 
+            "poster": "TheHangover.png",
+            "categories": ["Popular", "Comedy"]
+        },
+        {
+            "title": "Barbie", 
+            "poster": "Barbie.png",
+            "categories": ["New", "Popular"]
+        },
+        {
+            "title": "The Super Mario Bros. Movie", 
+            "poster": "SuperMarioBros.png",
+            "categories": ["New", "Popular", "Comedy"]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Movies = sequelize.define("Movies", {
+    const Movie = sequelize.define("Movie", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -12,11 +12,20 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
             allowNull: false,
         },
+        poster: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        trailer: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }
     });
 
-    Movies.associate = (models) => {
-        Movies.belongsToMany(models.Users, { through: 'WatchList' });
+    Movie.associate = (models) => {
+        Movie.belongsToMany(models.Category, { through: 'MovieCategory' });
+        Movie.belongsToMany(models.User, { through: 'WatchList' });
     };
 
-    return Movies;
+    return Movie;
 };

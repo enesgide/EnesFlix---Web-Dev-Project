@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
-import useFetch from '../scripts/useFetch.js'
 import { handleDrag } from '../scripts/moviesContainer.js'
 import axios from 'axios'
 
@@ -17,7 +16,7 @@ const MovieList = ({heading="Movies", category=null}) => {
     .catch(err => {
       console.error(category + " category error:\n" + err);
     })
-  }, []);
+  }, [category]);
   
 
 
@@ -36,12 +35,13 @@ const MovieList = ({heading="Movies", category=null}) => {
 
   
   return (   
-    <div className="content" style={{margin:'0', display: 'block'}}>
+    <div className="content">
 
         {/* Check if movies have loaded */}
         { movies && 
           <div>
-            <p style={{marginLeft: '3%', marginBottom: '0', fontFamily:'Montserrat', fontSize: '1.6rem', fontWeight: '600', letterSpacing:'-0.02em', color: 'white'}}>
+            <p className="movie-title"
+            style={{margin: '0 0 0 3%', fontFamily:'Montserrat', letterSpacing:'-0.02em', color: 'white'}}>
                 { heading }
             </p>
 

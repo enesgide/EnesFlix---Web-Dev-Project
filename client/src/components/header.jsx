@@ -17,7 +17,11 @@ const Header = () => {
             }}>
                 <Logo />
                 <SearchBar />
-                <div>
+                <span className="hamburger-btn" style={{float: 'right'}}>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hamburger_icon_white.svg/1024px-Hamburger_icon_white.svg.png"
+                    alt="hamburger-icon" width="30px" height="30px" />
+                </span>
+                <div className="nav-list-vertical">
                     {navLinks.map((navlink) => (
                         <NavButton key={ navlink.id } text={ navlink.text } url={ navlink.url } special={ navlink.special } />
                     ))}

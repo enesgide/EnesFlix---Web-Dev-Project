@@ -104,6 +104,24 @@ ul {
   transform: translateX(-50%);
 }
 
+.nav-bar .nav-list-vertical {
+  display: block;    
+}
+
+.nav-bar .hamburger-btn {
+  display: none;    
+}
+
+@media (max-width: 930px) {
+  .nav-bar .nav-list-vertical {
+    display: none;    
+  }
+
+  .nav-bar .hamburger-btn {
+    display: inline;    
+  }
+}
+
 .login-btn {
   font-weight: 700;
   color: white;
@@ -122,6 +140,12 @@ ul {
   background: transparent;
   flex-grow: 1;
   padding: 20px 15px;
+}
+
+@media (max-width: 520px) {
+  .nav-bar .search-bar {
+    display: none !important;
+  }
 }
 
 .nav-bar .search-bar .input {
@@ -147,6 +171,32 @@ ul {
   box-shadow: 0 0 0 2px var(--blue); /* Custom focus style using box-shadow */
 }
 
+.movie-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+@media (max-width: 420px) {
+  .movie-title {
+    font-size: 1.3rem;
+  font-weight: 600;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-title {
+    font-size: 1.5rem;
+  font-weight: 600;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-title {
+    font-size: 1.6rem;
+  font-weight: 600;
+  }
+}
+
 .movies-container {
   position: relative;
   width: 100%;
@@ -156,11 +206,26 @@ ul {
   overflow-x: hidden;
   cursor: grab;
   display: flex;
-  gap: 20px;
   justify-content: flex-start;
   align-items: center;
   scroll-behavior: auto;
-  padding: 20px 60px;
+  /* min properties */
+  gap: 8px;
+  padding: 8px 24px;
+}
+
+@media (min-width: 768px) {
+  .movies-container .slider {
+    gap: 14px;
+    padding: 14px 42px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movies-container .slider {
+    gap: 20px;
+    padding: 20px 60px;
+  }
 }
 
 .movies-container .slider::-webkit-scrollbar {
@@ -169,13 +234,31 @@ ul {
 
 .movies-container .item {
   background-color: rgb(40, 40, 40);
-  box-sizing: border-box;
-  width: calc((100% - (4 * 20px)) / 5);
-  aspect-ratio: calc(341/ 192);
+  box-sizing: border-box;  
+  aspect-ratio: calc(341 / 192);
   border-radius: 4px;
   flex-shrink: 0;
   text-align: center;
-  transition: all ease 0.2s;
+  transition: all ease 0.2s;  
+  width: calc((100% - (2 * 8px)) / 3);   
+}
+
+@media (max-width: 420px) {
+  .movies-container .item {
+    width: calc((100% - (1 * 8px)) / 2);
+  }
+}
+
+@media (min-width: 768px) {
+  .movies-container .item {
+    width: calc((100% - (3 * 14px)) / 4);
+  }
+}
+
+@media (min-width: 1200px) {
+  .movies-container .item {
+    width: calc((100% - (4 * 20px)) / 5);
+  }
 }
 
 .movies-container .item:hover {
@@ -187,8 +270,8 @@ ul {
 
 .movies-container .row-btn {
   z-index: 10;
-  height: 25%;
-  aspect-ratio: 1;
+  height: 50px;
+  width: 50px;
   opacity: 50%;
   background-color: var(--bg-bot);
   border: 2px white solid;
@@ -198,7 +281,34 @@ ul {
   font-family: 'Poppins';
   font-weight: 700;
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .movies-container .row-btn {
+    font-size: 1.8rem;
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-container .row-btn {
+    font-size: 1.6rem;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .movies-container .row-btn {
+    font-size: 1.4rem;
+    height: 36px;
+    width: 36px;
+  }
 }
 
 .movies-container .row-btn:hover {

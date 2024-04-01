@@ -1,20 +1,38 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import { handleDrag } from '../scripts/moviesContainer.js'
 import axios from 'axios'
+import localMoviesData from '../../src/data/movies.json'
 
 const MovieList = ({heading="Movies", category=null}) => {  
 
   // Retrieve movies from database
   const [movies, setMovies] = useState(null);
 
+  // Backup function
+  function formatMoviesData(moviesData, categoryName) {
+    const filteredMovies = moviesData.movies.filter(movie =>
+      movie.categories.includes(categoryName)
+    );
+  
+    return filteredMovies.map((movie, index) => ({
+      id: index,
+      title: movie.title,
+      poster: movie.poster,
+      trailer: movie.trailer || ""
+    }));
+  }
+
+
   useEffect(() => {
     axios.get(`http://localhost:3001/movies/category/${ category }`)
     .then(res => {
       setMovies(res.data);
     })
-    .catch(err => {
-      console.error(category + " category error:\n" + err);
+    .catch(err => {      
+      const backupMovies = formatMoviesData(localMoviesData, category);
+      if (backupMovies.length > 0) setMovies(backupMovies);  
+      else console.error(category + " category error:\n" + err);    
     })
   }, [category]);
   
